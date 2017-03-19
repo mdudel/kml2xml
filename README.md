@@ -24,3 +24,28 @@ java -jar "C:\Kml2Xml\dist\Kml2Xml.jar" IN=C:\KML\Test.kml OUT=C:\CMDWEB\Test.xm
 
 java -jar "C:\Kml2Xml\dist\Kml2Xml.jar" IN=C:\KML\Test.kml OUT=C:\CMDWEB\Test.ovl TITLE="TEST KML OVERLAY" FORMAT=OVL
 
+To use in code (see Kml2Xml.java https://github.com/mdudel/kml2xml/blob/master/src/kml2xml/Kml2Xml.java ):
+
+
+                File fin = new File("pathToFile.kml");                
+                
+                DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+                dbf.setNamespaceAware(true); 
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                Document doc = db.parse(fin);
+                
+                Features features = new Features(doc);
+                features.setTitle("Name Of Overlay or Effort");
+                
+                String gccsOvl = features.getOvlXml();
+                String commandWebEffort = features.getMnvrXml();
+                String csvWithHeader = features.getCsvHeader() + features.toCsv();
+                String plainCsv = features.toCsv();
+                
+                
+                
+
+
+
+
+
