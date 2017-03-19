@@ -1,6 +1,10 @@
 # kml2xml
 Convert KML/KMZ to GCCS OVL (overlay) xml format or Command Web Effort xml format
 
+Download the zipped jars: https://github.com/mdudel/kml2xml/blob/master/kml2xml.zip
+
+Unzip kml2xml.zip.
+
 To run:
 
 java -jar "C:\Kml2Xml\dist\Kml2Xml.jar"
