@@ -1,5 +1,5 @@
 # kml2xml
-Convert KML/KMZ to GCCS OVL (overlay) xml format or Command Web Effort xml format
+Convert KML/KMZ to CSV, GCCS OVL (overlay) xml format or Command Web Effort xml format
 
 Download the zipped jars: https://github.com/mdudel/kml2xml/blob/master/kml2xml.zip
 
