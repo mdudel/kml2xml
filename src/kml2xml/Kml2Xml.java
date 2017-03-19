@@ -169,7 +169,7 @@ public class Kml2Xml {
                             kml.append(new String(kmlBytes));
                             kmlBytes = new byte[bufferSize];
                         }
-                        //System.out.println("KML ===>\n" + kml + "\n<=== KML");
+
                         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
                         dbf.setNamespaceAware(true); //necessary if you want to getLocalName
                         DocumentBuilder db;
@@ -177,10 +177,7 @@ public class Kml2Xml {
                         Document doc = db.parse(new InputSource(new StringReader(kml.toString())));
                         Features features = new Features(doc);
                         features.setTitle(effortName);
-//                        System.out.println("Start CSV");
-//                        System.out.println(features.getCsvHeader());
-//                        System.out.println(features.toCsv());
-//                        System.out.println("End CSV");
+
                         if (format.toUpperCase().startsWith("O")) {
                             bw.write(features.getOvlXml());
                         } else if (format.toUpperCase().startsWith("C")) {
@@ -201,10 +198,7 @@ public class Kml2Xml {
                 Document doc = db.parse(fin);
                 Features features = new Features(doc);
                 features.setTitle(effortName);
-//                System.out.println("Start CSV");
-//                System.out.println(features.getCsvHeader());
-//                System.out.println(features.toCsv());
-//                System.out.println("End CSV");
+
                 if (format.toUpperCase().startsWith("O")) {
                     bw.write(features.getOvlXml());
                 } else if (format.toUpperCase().startsWith("C")) {
@@ -243,52 +237,3 @@ public class Kml2Xml {
     }//main
 
 }
-
-// http://stackoverflow.com/questions/12749236/unable-to-create-kmz-file-using-java-util-zip
-//import java.util.zip.ZipEntry;
-//import java.util.zip.ZipOutputStream;
-//import org.apache.commons.io.IOUtils;
-//import java.io.*;
-//
-//public class TestKmz {
-//
-//    public static void main(String[] args) throws IOException {     
-//        createKMZ();
-//        System.out.println("file out.kmz created");
-//    }
-//
-//    public static void createKMZ()  throws IOException  {
-//        FileOutputStream fos = new FileOutputStream("out.kmz");
-//        ZipOutputStream zoS = new ZipOutputStream(fos);     
-//        ZipEntry ze = new ZipEntry("doc.kml");
-//        zoS.putNextEntry(ze);
-//        PrintStream ps = new PrintStream(zoS);          
-//        ps.println("<?xml version='1.0' encoding='UTF-8'?>");
-//        ps.println("<kml xmlns='http://www.opengis.net/kml/2.2'>");     
-//        // write out contents of KML file ...
-//        ps.println("<Placemark>");
-//        // add reference to image via inline style
-//        ps.println("  <Style><IconStyle>");
-//        ps.println("    <Icon><href>image.png</href></Icon>");
-//        ps.println("  </IconStyle></Style>");
-//        ps.println("</Placemark>");
-//        ps.println("</kml>");
-//        ps.flush();                 
-//        zoS.closeEntry(); // close KML entry
-//
-//        // now add image file entry to KMZ
-//        FileInputStream is = null;
-//        try {                   
-//            is = new FileInputStream("image.png");
-//            ZipEntry zEnt = new ZipEntry("image.png");
-//            zoS.putNextEntry(zEnt);
-//            // copy image input to KMZ output
-//            // write contents to entry within compressed KMZ file
-//            IOUtils.copy(is, zoS);
-//        } finally {
-//            IOUtils.closeQuietly(is);
-//        }
-//        zoS.closeEntry();
-//        zoS.close();
-//    }   
-//}   
