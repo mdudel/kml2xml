@@ -13,6 +13,10 @@ java -jar "C:\Kml2Xml\dist\Kml2Xml.jar"
                 FORMAT=the output schema, default is MNVR XML, use OVL to obtain GCCS-J OVL [MNVR,OVL](optional)
 
 Example:
+
 java -jar "C:\Kml2Xml\dist\Kml2Xml.jar" IN=C:\KML\Test.kml
+
 java -jar "C:\Kml2Xml\dist\Kml2Xml.jar" IN=C:\KML\Test.kml OUT=C:\CMDWEB\Test.xml TITLE="TEST KML EFFORT" FORMAT=MNVR
+
 java -jar "C:\Kml2Xml\dist\Kml2Xml.jar" IN=C:\KML\Test.kml OUT=C:\CMDWEB\Test.ovl TITLE="TEST KML OVERLAY" FORMAT=OVL
+
